@@ -649,7 +649,7 @@ export const allQuestions = [
     },
     {
         number: 85,
-        question: "Bakış açısı, objektifin odak uzaklığı ve diyafram değerleri gibi unsurlar, bir fotoğrafta neyi oluşturmak amacıyla kullanılmaktadır?",
+        question: "I. Bakış açısı, \nII.objektifin odak uzaklığı \nIII. diyafram değerlerir, \nYukarıdakilerden hangisi ya da hangileri bir fotoğrafta üç boyut hissi oluşturmak amacıyla kullanılmaktadır?",
         options: [
             "Yalnız I",
             "Yalnız II",
@@ -757,7 +757,7 @@ export const allQuestions = [
     },
     {
         number: 94,
-        question: "Mekânda çok sayıda ve dağınık nesne varsa, egemen öge kadrajı dolduruyorsa veya ilgi ön plandaki konuya çekilmek isteniyorsa, fonun bulanık bırakılması tercih edilir. Yukarıdakilerden hangileri doğrudur?",
+        question: "I: Mekânda çok sayıda ve dağınık nesne varsa \nII: egemen öge kadrajı dolduruyorsa \nIII. ilgi ön plandaki konuya çekilmek isteniyorsa \nYukarıdakilerden hangisi ya da hangilerinde fonun bulanık (flu) bırakılması tercih edilmekt dir?",
         options: [
             "Yalnız I",
             "Yalnız II",
@@ -829,7 +829,7 @@ export const allQuestions = [
     },
     {
         number: 100,
-        question: "Çok sayıda öge kullanma, kadrajda kapladığı alanı büyütme ve üçte bir kuralına göre yerleştirme yöntemlerinden hangisi ya da hangileri fotoğraftaki egemen ögeyi ilgi merkezine dönüştürebilmek amacıyla kullanılır?",
+        question: "Çok sayıda öge kullanma \nkadrajda kapladığı alanı büyütme \nüçte bir kuralına göre yerleştirme \nYukarıdakilerden hangisi ya da hangileri fotoğraftaki egemen ögeyi ilgi merkezine dönüştürebilmek amacıyla kullanılan yöntemler arasında yer alır?",
         options: [
             "Yalnız I",
             "Yalnız II",

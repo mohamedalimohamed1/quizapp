@@ -9,21 +9,26 @@
 <body>
     <div class="quiz-container">
         <h1>Fotoğrafçılık Test Soruları</h1>
-        
+
         <!-- Introductory Text -->
         <div id="intro-text">
-            <p>Bu quiz programında, fotoğrafçılık sınavınıza çalışabilirsiniz. Başlamak için iki seçenekten birini seçin:</p>
+            <p>Bu quiz programında, 110 soru bulunmaktadır ve fotoğrafçılık sınavınız için çalışabilirsiniz. Başlamak için bir seçenek belirleyin:</p>
             <ul>
                 <li><strong>Tüm Soruları Cevapla:</strong> Tüm soruları sırayla cevaplayarak puanınızı görebilirsiniz.</li>
-                <li><strong>25 Rastgele Soruyu Cevapla:</strong> Tüm sorular arasından rastgele seçilen 25 soruyu cevaplayarak puanınızı 100'lük sistemde görebilirsiniz.</li>
+                <li><strong>20 Rastgele Soruyu Cevapla:</strong> Tüm sorular arasından rastgele seçilen 20 soruyu cevaplayabilirsiniz.</li>
+                <li><strong>Soru Aralığı Seçin:</strong> Belirli bir soru aralığını seçerek sadece bu soruları cevaplayabilirsiniz. Örnek: "11-20", "21-30", "31-40" şeklinde bir aralık girerek istediğiniz soruları çözebilirsiniz.</li>
             </ul>
             <p>Doğru cevaplar sonucunda puanınız hesaplanacak ve sorular bittiğinde sonuçlarınız görüntülenecektir. Başarılar!</p>
+
+            <label for="question-range">Soru Aralığı (Örnek: 11-20):</label>
+            <input type="text" id="question-range" placeholder="Örn: 11-20">
+            <button onclick="startQuiz('range', getRange())">Seçilen Aralığı Cevapla</button>
         </div>
 
         <!-- Mode Selection Buttons -->
         <div id="mode-selection">
             <button onclick="startQuiz('all')">Tüm Soruları Cevapla</button>
-            <button onclick="startQuiz('random')">25 Rastgele Soruyu Cevapla</button>
+            <button onclick="startQuiz('random')">20 Rastgele Soruyu Cevapla</button>
         </div>
 
         <!-- Question and Answer Message Containers -->

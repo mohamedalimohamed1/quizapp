@@ -1,3 +1,4 @@
+// Updated script.js with modernized functionality
 import { allQuestions } from "./question.js";
 
 let questions = [];
@@ -5,6 +6,7 @@ let currentQuestionIndex = 0;
 let correctCount = 0;
 let incorrectCount = 0;
 let quizMode = '';
+let answered = new Map(); // Track if a question has been answered and its correctness
 
 // Shuffle function to pick random questions
 function shuffleArray(array) {
@@ -14,32 +16,48 @@ function shuffleArray(array) {
     }
 }
 
-// Start the quiz with chosen mode
-function startQuiz(mode) {
+// Get the question range from input
+function getRange() {
+    const rangeInput = document.getElementById("question-range").value;
+    const [start, end] = rangeInput.split("-").map(Number);
+
+    if (start && end && start > 0 && end <= allQuestions.length && start <= end) {
+        return [start, end];
+    } else {
+        alert("Lütfen geçerli bir aralık giriniz (örneğin 11-20)!");
+        return null;
+    }
+}
+
+// Start the quiz with chosen mode or selected range
+function startQuiz(mode, range = null) {
     quizMode = mode;
     correctCount = 0;
     incorrectCount = 0;
     currentQuestionIndex = 0;
+    answered.clear();
 
-    // Select questions based on the chosen mode
     if (mode === 'all') {
         questions = allQuestions;
     } else if (mode === 'random') {
         questions = [...allQuestions];
         shuffleArray(questions);
-        questions = questions.slice(0, 25);
+        questions = questions.slice(0, 20);
+    } else if (mode === 'range' && range) {
+        const [start, end] = range;
+        questions = allQuestions.slice(start - 1, end);
     }
 
-    // Hide the guide text and mode selection
     document.getElementById("intro-text").style.display = "none";
     document.getElementById("mode-selection").style.display = "none";
     document.getElementById("question-container").style.display = "block";
-
     showQuestion();
 }
 
-// Make startQuiz globally accessible
+// Make functions globally accessible
 window.startQuiz = startQuiz;
+window.getRange = getRange;
+window.resetQuiz = resetQuiz;
 
 // Display the current question
 function showQuestion() {
@@ -48,17 +66,67 @@ function showQuestion() {
 
     const questionElement = document.createElement("p");
     questionElement.innerText = `Soru ${questions[currentQuestionIndex].number}: ${questions[currentQuestionIndex].question}`;
+    questionElement.classList.add("modern-question");
     questionContainer.appendChild(questionElement);
 
-    questions[currentQuestionIndex].options.forEach(option => {
-        const button = document.createElement("button");
-        button.innerText = option;
-        button.onclick = () => selectAnswer(button, option);
-        questionContainer.appendChild(button);
-    });
+    // Display options if the question hasn't been answered
+    if (!answered.has(currentQuestionIndex)) {
+        questions[currentQuestionIndex].options.forEach(option => {
+            const button = document.createElement("button");
+            button.innerText = option;
+            button.classList.add("modern-button");
+            button.onclick = () => selectAnswer(button, option);
+            questionContainer.appendChild(button);
+        });
+    } else {
+        // Highlight the correct answer for already answered questions
+        const correctAnswer = questions[currentQuestionIndex].answer;
+        questions[currentQuestionIndex].options.forEach(option => {
+            const button = document.createElement("button");
+            button.innerText = option;
+            button.classList.add(option === correctAnswer ? "correct" : "disabled");
+            button.disabled = true;
+            questionContainer.appendChild(button);
+        });
+    }
+
+    // Add navigation buttons
+    const navContainer = document.createElement("div");
+    navContainer.classList.add("nav-container");
+
+    const prevButton = document.createElement("button");
+    prevButton.innerText = "Önceki Soru";
+    prevButton.classList.add("modern-nav-button");
+    prevButton.onclick = goToPreviousQuestion;
+    prevButton.disabled = currentQuestionIndex === 0;
+    navContainer.appendChild(prevButton);
+
+    const nextButton = document.createElement("button");
+    nextButton.innerText = "Sonraki Soru";
+    nextButton.classList.add("modern-nav-button");
+    nextButton.onclick = goToNextQuestion;
+    navContainer.appendChild(nextButton);
+
+    questionContainer.appendChild(navContainer);
 }
 
-// Rest of the script remains unchanged...
+// Navigate to the previous question
+function goToPreviousQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        showQuestion();
+    }
+}
+
+// Navigate to the next question
+function goToNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        showQuestion();
+    } else {
+        showResults();
+    }
+}
 
 // Handle answer selection
 function selectAnswer(button, selectedOption) {
@@ -74,50 +142,32 @@ function selectAnswer(button, selectedOption) {
         answerMessage.innerText = "Yanlış!";
         answerMessage.className = "incorrect";
         button.classList.add("incorrect");
-
-        // Highlight the correct answer button
-        highlightCorrectAnswer();
     }
 
-    // Delay before moving to the next question to show the answer message
+    answered.set(currentQuestionIndex, selectedOption === correctAnswer);
+
     setTimeout(() => {
         answerMessage.innerText = "";
-        button.classList.remove("incorrect");
-
         if (currentQuestionIndex < questions.length - 1) {
             currentQuestionIndex++;
             showQuestion();
         } else {
             showResults();
         }
-    }, 1000); // 1 second delay to display feedback
+    }, 1000);
 }
 
-// Highlight the correct answer for incorrect attempts
-function highlightCorrectAnswer() {
-    const buttons = document.querySelectorAll("#question-container button");
-    buttons.forEach(btn => {
-        if (btn.innerText === questions[currentQuestionIndex].answer) {
-            btn.classList.add("correct"); // Highlight the correct answer
-        }
-    });
-}
-
-// Show final results with a "Giriş Sayfasına Git" button
+// Show final results
 function showResults() {
     const questionContainer = document.getElementById("question-container");
-    let score = correctCount;
-
-    if (quizMode === 'random') {
-        score = (correctCount / 25) * 100; // Scale score to 100 points
-    }
+    let score = (correctCount / questions.length) * 100;
 
     questionContainer.innerHTML = `
-        <h2>Sonuçlar</h2>
-        <p>Doğru: ${correctCount}</p>
-        <p>Yanlış: ${incorrectCount}</p>
-        <p>Puan: ${quizMode === 'random' ? score.toFixed(2) + " / 100" : correctCount + " / " + questions.length}</p>
-        <button onclick="resetQuiz()">Giriş Sayfasına Git</button>
+        <h2 class="modern-results-title">Sonuçlar</h2>
+        <p class="modern-results">Doğru: ${correctCount}</p>
+        <p class="modern-results">Yanlış: ${incorrectCount}</p>
+        <p class="modern-results">Puan: ${score.toFixed(2)} / 100</p>
+        <button onclick="resetQuiz()" class="modern-button">Giriş Sayfasına Git</button>
     `;
 }
 
@@ -127,6 +177,11 @@ function resetQuiz() {
     document.getElementById("mode-selection").style.display = "block";
     document.getElementById("question-container").style.display = "none";
     document.getElementById("answer-message").innerText = "";
+    questions = [];
+    currentQuestionIndex = 0;
+    correctCount = 0;
+    incorrectCount = 0;
+    answered.clear();
 }
 
 // Initialize with the mode selection view
