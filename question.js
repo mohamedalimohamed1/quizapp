@@ -13,7 +13,7 @@ export const allQuestions = [
     },
     {
         number: 3,
-        question: "Gerçeğe en yakın formlardan biridir, duyguları harekete geçirir, bilgiyi bellekte saklamayı kolaylaştırır. Yukarıdakilerden hangisi veya hangileri fotoğrafın özellikleri arasında yer almaktadır?",
+        question: "I. Gerçeğe en yakın formlardan biridir \nII. duyguları harekete geçirir \nIII. bilgiyi bellekte saklamayı kolaylaştırır. Yukarıdakilerden hangisi veya hangileri fotoğrafın özellikleri arasında yer almaktadır?",
         options: ["Yalnız I", "Yalnız II", "Yalnız III", "II ve III", "I, II ve III"],
         answer: "II ve III"
     },
@@ -564,13 +564,13 @@ export const allQuestions = [
         number: 92,
         question: "Geniş açılı objektiflerin özellikleri arasında aşağıdakilerden hangisi yer almaz?",
         options: [
-            "Dar açılı objektiflere göre daha fazla alan kadraja alınır.",
-            "Nesneler olduğundan daha uzaktaymış gibi görünür.",
-            "Nesnenin büyütülme oranı, dar açılı objektiflere göre daha fazladır.",
-            "Görüş alanı, dar açılı objektiflere göre daha fazladır.",
-            "Geniş açılı objektiflerin verdiği derinlik hissi, dar açılı objektiflere göre daha fazladır."
+            "Dar açılı objektiflere göre daha fazla alan kadraja alınır",
+            "Nesneler olduğundan daha uzaktaymış gibi görünür",
+            "Nesnenin büyütülme oranı, dar açılı objektiflere göre daha fazladır",
+            "Görüş alanı, dar açılı objektiflere göre daha fazladır",
+            "Geniş açılı objektiflerin verdiği derinlik hissi, dar açılı objektiflere göre daha fazladır"
         ],
-        answer: "Nesnenin büyütülme oranı, dar açılı objektiflere göre daha fazladır."
+        answer: "Nesnenin büyütülme oranı, dar açılı objektiflere göre daha fazladır"
     },
     {
         number: 93,
@@ -733,13 +733,13 @@ export const allQuestions = [
         number: 106,
         question: "Hyperlapse fotoğraf tekniğinin özellikleri arasında aşağıdakilerden hangisi bulunmaz?",
         options: [
-            "Her pozlamadan sonra kameranın konumu değişir.",
-            "Çok sayıda fotoğraf ya da videodan oluşur.",
-            "Bir Instagram uygulaması olarak da kullanılmaktadır.",
-            "Yüksek kaliteli zaman aralıklı videoların birleşmesiyle oluşur.",
-            "Görüntülerin yavaşlatılması esasına dayanır."
+            "Her pozlamadan sonra kameranın konumu değişir",
+            "Çok sayıda fotoğraf ya da videodan oluşur",
+            "Bir Instagram uygulaması olarak da kullanılmaktadır",
+            "Yüksek kaliteli zaman aralıklı videoların birleşmesiyle oluşur",
+            "Görüntülerin yavaşlatılması esasına dayanır"
         ],
-        answer: "Görüntülerin yavaşlatılması esasına dayanır."
+        answer: "Görüntülerin yavaşlatılması esasına dayanır"
     },
     {
         number: 107,
