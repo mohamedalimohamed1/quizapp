@@ -275,7 +275,7 @@ export const allQuestions = [
     },
     {
         number: 46,
-        question: "I. Lens çıkarma düğmesi \nII. İnfo düğmesi III. Diyoptri kadranı \nIV. Vibrasyon düğmesi \nV. Netlik kiltleme düğmesi \nFotoğraf makinesinin gövdesinde…………………, …………………… ve ………….. düğmeleri bulunur. Cümlede boş bırakılan yerlere sırasıyla yukarıdakilerden hangileri getirilmelidir?",
+        question: "I. Lens çıkarma düğmesi \nII. İnfo düğmesi III. \nDiyoptri kadranı \nIV. Vibrasyon düğmesi \nV. Netlik kiltleme düğmesi \nFotoğraf makinesinin gövdesinde…………………, …………………… ve ………….. düğmeleri bulunur. Cümlede boş bırakılan yerlere sırasıyla yukarıdakilerden hangileri getirilmelidir?",
         options: ["I, II  ve III", "I, III ve IV", "II, III ve IV", "II, IV ve V", "III, IV ve V"],
         answer: "I, II  ve III"
     },
