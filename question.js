@@ -242,7 +242,7 @@ export const allQuestions = [
         options: ["Yalnız I", "Yalnız II", "Yalnız III", "II ve III", "I, II ve III"],
         answer: "I, II ve III"
     },
-    
+
     {
         number: 41,
         question: "Fotoğraf makinesinin ana yapısını oluşturan iki mekanizma aşağıdakilerden hangisinde doğru verilmiştir?",
@@ -673,11 +673,11 @@ export const allQuestions = [
         number: 101,
         question: "Panoramik fotoğraf türünün özellikleri arasında aşağıdakilerden hangisi bulunmaz?",
         options: [
-            "Geniş açılı fotoğraflardır.",
-            "Soldan sağa 180 dereceyi kaplayan panoramalardır.",
-            "360 dereceye kadar olan panoramalardır.",
-            "Küçük detaylara odaklanılır.",
-            "Birden fazla görüntüden oluşabilmektedir."
+            "Geniş açılı fotoğraflardır",
+            "Soldan sağa 180 dereceyi kaplayan panoramalardır",
+            "360 dereceye kadar olan panoramalardır",
+            "Küçük detaylara odaklanılır",
+            "Birden fazla görüntüden oluşabilmektedir"
         ],
         answer: "Küçük detaylara odaklanılır"
     },
@@ -1152,5 +1152,4 @@ export const allQuestions = [
         ],
         answer: "Altın noktalar"
     }
-
 ];
