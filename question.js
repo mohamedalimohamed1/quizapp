@@ -829,7 +829,7 @@ export const allQuestions = [
     },
     {
         number: 100,
-        question: "Çok sayıda öge kullanma \nkadrajda kapladığı alanı büyütme \nüçte bir kuralına göre yerleştirme \nYukarıdakilerden hangisi ya da hangileri fotoğraftaki egemen ögeyi ilgi merkezine dönüştürebilmek amacıyla kullanılan yöntemler arasında yer alır?",
+        question: "I. Çok sayıda öge kullanma \nII. kadrajda kapladığı alanı büyütme \nIII. üçte bir kuralına göre yerleştirme \nYukarıdakilerden hangisi ya da hangileri fotoğraftaki egemen ögeyi ilgi merkezine dönüştürebilmek amacıyla kullanılan yöntemler arasında yer alır?",
         options: [
             "Yalnız I",
             "Yalnız II",
